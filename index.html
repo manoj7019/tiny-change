@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Tiny Changes</title>
+</head>
+<body>
+    <h1>Tiny changes,<br>Remarkable results.</h1>
+    <div class="month">
+        <button class="monthBtn" id="prevBtn">prev</button>
+        <h2 id="todayDate">August</h2>
+        <button class="monthBtn" id="nextBtn">next</button>
+    </div>
+    <div class="box">
+        <div class="container" id="container">
+            <!-- <div class="dateDiv">1</div>
+            <div class="dateDiv">2</div>
+            <div class="dateDiv">3</div>
+            <div class="dateDiv">4</div>
+            <div class="dateDiv">5</div>
+            <div class="dateDiv">6</div>
+            <div class="dateDiv">7</div>
+            <div class="dateDiv">8</div>
+            <div class="dateDiv">9</div>
+            <div class="dateDiv">10</div>
+            <div class="dateDiv">11</div>
+            <div class="dateDiv" id="todayDiv">12</div>
+            <div class="dateDiv">13</div>
+            <div class="dateDiv">14</div>
+            <div class="dateDiv">15</div>
+            <div class="dateDiv">16</div>
+            <div class="dateDiv">17</div>
+            <div class="dateDiv">18</div>
+            <div class="dateDiv">19</div>
+            <div class="dateDiv">20</div>
+            <div class="dateDiv">21</div>
+            <div class="dateDiv">22</div>
+            <div class="dateDiv">23</div>
+            <div class="dateDiv">24</div>
+            <div class="dateDiv">25</div>
+            <div class="dateDiv">26</div>
+            <div class="dateDiv">27</div>
+            <div class="dateDiv">28</div>
+            <div class="dateDiv">29</div>
+            <div class="dateDiv">30</div>
+            <div class="dateDiv">31</div> -->
+        </div>
+        <form action="" method="get">
+        <div class="tasks">
+            <div class="taskBox">
+                <input type="checkbox" name="" class="task" id="task1">
+                <label for="task1">Stepped outside in walking shoes</label>
+            </div>
+            <div class="taskBox">
+                <input type="checkbox" name="" class="task" id="task1">
+                <label for="task1">Ate 1 high protein meal</label>
+            </div>
+            <div class="taskBox">
+                <input type="checkbox" name="" class="task" id="task1">
+                <label for="task1">Did 10 pushups</label>
+            </div>
+            <div class="taskBox">
+                <input type="checkbox" name="" class="task" id="task1">
+                <label for="task1">Went to bed before 11pm</label>
+            </div>
+            <div class="taskBox">
+                <input type="checkbox" name="" class="task" id="task1">
+                <label for="task1">Didn't take phone to bed</label>
+            </div>
+            <div class="taskBox textBox">
+                <textarea name="" id="" placeholder="How was your day? Summarize it to 2 sentence."></textarea>
+            </div>
+            <button id="updateBtn">Update</button>
+        </div>
+        </form>
+    </div>
+</body>
+<script>
+    const container = document.querySelector('#container');
+    const updateBtn = document.querySelector('#updateBtn');
+    const todayDate = document.querySelector('#todayDate');
+
+    function createDateDiv() {
+        const year = new Date().getFullYear(); console.log(year);
+        const month = new Date().getMonth(); console.log(month);
+        const day = new Date().getDate(); console.log(day);
+
+        const monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        const today = `${monthArray[`${month}`]}, ${year}`;
+        todayDate.textContent = today;
+
+        for(let i=1; i<=day; i++) {
+            const dateDiv = document.createElement('div');
+            dateDiv.setAttribute('class', 'dateDiv')
+            container.appendChild(dateDiv);
+        }
+
+        const dateDivs = Array.from(document.querySelectorAll('.dateDiv')); console.log(dateDivs);
+        const currentDay = `${day}${month}${year}`;
+        console.log(currentDay);
+
+        dateDivs.forEach(dateDiv => {
+            dateDiv.setAttribute('data-id', `${dateDivs.indexOf(dateDiv) + 1}${month}${year}`)
+            dateDiv.textContent = `${dateDivs.indexOf(dateDiv) + 1}`;
+            let dataValue = dateDiv.dataset.id;
+            if(dataValue === currentDay) {
+                dateDiv.style.backgroundColor = '#bada55';
+            }
+        })
+
+        const all = document.querySelectorAll('[data-id]');
+
+
+    }
+    createDateDiv()
+</script>
+</html>

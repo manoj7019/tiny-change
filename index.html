@@ -47,32 +47,33 @@
             <div class="dateDiv">30</div>
             <div class="dateDiv">31</div> -->
         </div>
-        <form action="" method="get">
+        <form action="" method="get" id="inputForm">
         <div class="tasks">
             <div class="taskBox">
                 <input type="checkbox" name="" class="task" id="task1">
                 <label for="task1">Stepped outside in walking shoes</label>
             </div>
             <div class="taskBox">
-                <input type="checkbox" name="" class="task" id="task1">
-                <label for="task1">Ate 1 high protein meal</label>
+                <input type="checkbox" name="" class="task" id="task2">
+                <label for="task2">Ate 1 high protein meal</label>
             </div>
             <div class="taskBox">
-                <input type="checkbox" name="" class="task" id="task1">
-                <label for="task1">Did 10 pushups</label>
+                <input type="checkbox" name="" class="task" id="task3">
+                <label for="task3">Did 10 pushups</label>
             </div>
             <div class="taskBox">
-                <input type="checkbox" name="" class="task" id="task1">
-                <label for="task1">Went to bed before 11pm</label>
+                <input type="checkbox" name="" class="task" id="task4">
+                <label for="task4">Went to bed before 11pm</label>
             </div>
             <div class="taskBox">
-                <input type="checkbox" name="" class="task" id="task1">
-                <label for="task1">Didn't take phone to bed</label>
+                <input type="checkbox" name="" class="task" id="task5">
+                <label for="task5">Didn't take phone to bed</label>
             </div>
             <div class="taskBox textBox">
-                <textarea name="" id="" placeholder="How was your day? Summarize it to 2 sentence."></textarea>
+                <p>One-line journal :</p>
+                <textarea name="" id="task6" placeholder="How was your day? Summarize it to 2 sentence."></textarea>
             </div>
-            <button id="updateBtn">Update</button>
+            <button type="submit" id="updateBtn">Update</button>
         </div>
         </form>
     </div>
@@ -81,6 +82,9 @@
     const container = document.querySelector('#container');
     const updateBtn = document.querySelector('#updateBtn');
     const todayDate = document.querySelector('#todayDate');
+    const tasks = Array.from(document.querySelectorAll('.task'));
+    console.log(tasks);
+
 
     function createDateDiv() {
         const year = new Date().getFullYear(); console.log(year);
@@ -106,14 +110,16 @@
             dateDiv.textContent = `${dateDivs.indexOf(dateDiv) + 1}`;
             let dataValue = dateDiv.dataset.id;
             if(dataValue === currentDay) {
-                dateDiv.style.backgroundColor = '#bada55';
+                dateDiv.style.backgroundColor = '#e5b80b';
             }
+            // tasks.forEach(task => task.checked === true ? dateDiv.style.backgroundColor = '#ff4500' : '')
         })
-
-        const all = document.querySelectorAll('[data-id]');
-
-
     }
     createDateDiv()
+
+    function submitForm() {
+
+    }
+
 </script>
 </html>

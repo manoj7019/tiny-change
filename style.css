@@ -60,8 +60,60 @@ h1 {
     border-radius: 0.2rem;
 }
 
+label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 .dateDiv:hover {
     background-color: aqua;
+}
+
+.indicator {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h4 {
+    flex:1;
+    color: green;
+}
+
+.indicators {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1.2;
+}
+
+.notBad{
+    opacity: 0.2;
+}
+
+.ok {
+    opacity: 0.4;
+}
+
+.good {
+    opacity: 0.6;
+}
+
+.better {
+    opacity: 0.8;
+}
+
+.best {
+    opacity: 1;
+}
+
+.level {
+    background-color: green;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 0.2rem;
 }
 
 .tasks {
@@ -75,6 +127,10 @@ h1 {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+input[type="checkbox"] {
+    accent-color: green;
 }
 
 .textBox {

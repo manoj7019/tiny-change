@@ -15,37 +15,6 @@
     </div>
     <div class="box">
         <div class="container" id="container">
-            <!-- <div class="dateDiv">1</div>
-            <div class="dateDiv">2</div>
-            <div class="dateDiv">3</div>
-            <div class="dateDiv">4</div>
-            <div class="dateDiv">5</div>
-            <div class="dateDiv">6</div>
-            <div class="dateDiv">7</div>
-            <div class="dateDiv">8</div>
-            <div class="dateDiv">9</div>
-            <div class="dateDiv">10</div>
-            <div class="dateDiv">11</div>
-            <div class="dateDiv" id="todayDiv">12</div>
-            <div class="dateDiv">13</div>
-            <div class="dateDiv">14</div>
-            <div class="dateDiv">15</div>
-            <div class="dateDiv">16</div>
-            <div class="dateDiv">17</div>
-            <div class="dateDiv">18</div>
-            <div class="dateDiv">19</div>
-            <div class="dateDiv">20</div>
-            <div class="dateDiv">21</div>
-            <div class="dateDiv">22</div>
-            <div class="dateDiv">23</div>
-            <div class="dateDiv">24</div>
-            <div class="dateDiv">25</div>
-            <div class="dateDiv">26</div>
-            <div class="dateDiv">27</div>
-            <div class="dateDiv">28</div>
-            <div class="dateDiv">29</div>
-            <div class="dateDiv">30</div>
-            <div class="dateDiv">31</div> -->
         </div>
         <form action="" method="get" id="inputForm">
         <div class="tasks">
@@ -73,7 +42,7 @@
                 <p>One-line journal :</p>
                 <textarea name="" id="task6" placeholder="How was your day? Summarize it to 2 sentence."></textarea>
             </div>
-            <button type="submit" id="updateBtn">Update</button>
+            <button type="submit" id="updateBtn" onclick="submitForm()">Update</button>
         </div>
         </form>
     </div>
@@ -84,7 +53,6 @@
     const todayDate = document.querySelector('#todayDate');
     const tasks = Array.from(document.querySelectorAll('.task'));
     console.log(tasks);
-
 
     function createDateDiv() {
         const year = new Date().getFullYear(); console.log(year);
@@ -118,7 +86,15 @@
     createDateDiv()
 
     function submitForm() {
+        const task1 = document.querySelector('#task1');
+        const task2 = document.querySelector('#task2');
+        const task3 = document.querySelector('#task3');
+        const task4 = document.querySelector('#task4');
+        const task5 = document.querySelector('#task5');
 
+        if(task1.checked && task2.checked === true) {
+            console.log(abcd);
+        }
     }
 
 </script>

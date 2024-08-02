@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Tiny Changes</title>
+</head>
+<body>
+    <h1>Tiny changes,<br>Remarkable results.</h1>
+    <div class="month">
+        <button class="monthBtn" id="prevBtn">prev</button>
+        <h2 id="todayDate">August</h2>
+        <button class="monthBtn" id="nextBtn">next</button>
+    </div>
+    <div class="box">
+        <div class="container" id="container">
+        </div>
+        <form id="inputForm" onsubmit="submitForm(event)">
+            <div class="tasks">
+                <div class="taskBox">
+                    <label for="task1">
+                        <input type="checkbox" name="task" class="task" id="task1" value="walk">
+                        Stepped outside in walking shoes
+                    </label>
+                </div>
+                <div class="taskBox">
+                    <label for="task2">
+                        <input type="checkbox" name="task" class="task" id="task2" value="diet">
+                        Ate 1 high protein meal
+                    </label>
+                </div>
+                <div class="taskBox">
+                    <label for="task3">
+                        <input type="checkbox" name="task" class="task" id="task3" value="workout">
+                        Did 10 pushups
+                    </label>
+                </div>
+                <div class="taskBox">
+                    <label for="task4">
+                    <input type="checkbox" name="task" class="task" id="task4" value="sleep">
+                        Went to bed before 11pm
+                    </label>
+                </div>
+                <div class="taskBox">
+                    <label for="task5">
+                        <input type="checkbox" name="task" class="task" id="task5" value="phone">
+                        Didn't take phone to bed
+                    </label>
+                </div>
+                <div class="taskBox textBox">
+                    <p>One-line journal :</p>
+                    <textarea name="" id="task6" placeholder="How was your day? Summarize it to 2 sentence."></textarea>
+                </div>
+                <button type="submit" id="updateBtn">Update</button>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    const container = document.querySelector('#container');
+    const updateBtn = document.querySelector('#updateBtn');
+    const todayDate = document.querySelector('#todayDate');
+    const tasks = Array.from(document.querySelectorAll('.task'));
+
+    const task1 = document.querySelector('#task1');
+    const task2 = document.querySelector('#task2');
+    const task3 = document.querySelector('#task3');
+    const task4 = document.querySelector('#task4');
+    const task5 = document.querySelector('#task5');
+
+    let todayDiv;
+    console.log(tasks);
+
+    function createDateDiv() {
+        const year = new Date().getFullYear(); console.log(year);
+        const month = new Date().getMonth(); console.log(month);
+        const day = new Date().getDate(); console.log(day);
+
+        const monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        const today = `${monthArray[`${month}`]}, ${year}`;
+        todayDate.textContent = today;
+
+        for(let i=1; i<=day; i++) {
+            const dateDiv = document.createElement('div');
+            dateDiv.setAttribute('class', 'dateDiv')
+            container.appendChild(dateDiv);
+        }
+
+
+        const dateDivs = Array.from(document.querySelectorAll('.dateDiv')); console.log(dateDivs);
+        const currentDay = `${day}${month}${year}`;
+        console.log(currentDay);
+
+        dateDivs.forEach(dateDiv => {
+            dateDiv.setAttribute('data-id', `${dateDivs.indexOf(dateDiv) + 1}${month}${year}`)
+            todayDiv = dateDiv.getAttribute('data-id');
+
+            console.log(todayDiv)
+
+            dateDiv.textContent = `${dateDivs.indexOf(dateDiv) + 1}`;
+            let dataValue = dateDiv.dataset.id;
+            if(dataValue === currentDay) {
+                dateDiv.style.border = '0.1rem solid black';
+            }
+            // tasks.forEach(task => task.checked === true ? dateDiv.style.backgroundColor = '#ff4500' : '')
+        })
+    }
+    createDateDiv()
+
+    function submitForm(event) {
+        event.preventDefault();
+        // if(task1.checked) {
+        //     console.log(task1.value);
+        // }
+        tasks.forEach(task => {
+            if(task.checked) {
+                console.log(task.value);
+            }
+        })
+        document.querySelector('#inputForm').reset();
+        console.log(todayDiv);
+    }
+
+</script>
+</html>
